@@ -56,5 +56,66 @@ namespace OOP_SOLID.Tests.OOP.Encapsulation
             decimal balance = goodAccount.GetBalance();
             Assert.AreEqual(0, balance);
         }
+        [TestMethod]
+        public void Withdraw_WithdrawAllFunds_WithdrawSuccessfully()
+        {
+            var goodAccount = new GoodAccount(10);
+            goodAccount.Withdraw(10);
+            decimal balance = goodAccount.GetBalance();
+            Assert.AreEqual(0, balance);
+        }
+        [TestMethod]
+        public void Withdraw_WithdrawLessThanAccessible_WithdrawSuccessfully()
+        {
+            var goodAccount = new GoodAccount(10);
+            goodAccount.Withdraw(1);
+            decimal balance = goodAccount.GetBalance();
+            Assert.AreEqual(9, balance);
+        }
+        [TestMethod]
+        public void Withdraw_WithdrawNegativeAmount_ThrowExeption()
+        {
+            var goodAccount = new GoodAccount(10);
+            Assert.ThrowsException<ArgumentException>(() => goodAccount.Withdraw(-1));
+        }
+        [TestMethod]
+        public void Withdraw_WithdrawNegativeAmount_BalanceUnchanged()
+        {
+            var goodAccount = new GoodAccount(10);
+            try { goodAccount.Withdraw(-1); }
+            catch (ArgumentException ex) { }
+            decimal balance = goodAccount.GetBalance();
+            Assert.AreEqual(10, balance);
+        }
+        [TestMethod]
+        public void Withdraw_WithdrawZero_ThrowExeption()
+        {
+            var goodAccount = new GoodAccount(10);
+            Assert.ThrowsException<ArgumentException>(() => goodAccount.Withdraw(0));
+        }
+        [TestMethod]
+        public void Withdraw_WithdrawZero_BalanceUnchanged()
+        {
+            var goodAccount = new GoodAccount(10);
+            try { goodAccount.Withdraw(0); }
+            catch (ArgumentException ex) { }
+            decimal balance = goodAccount.GetBalance();
+            Assert.AreEqual(10, balance);
+        }
+        [TestMethod]
+        public void Withdraw_WithdrawMoreThanBalance_ThrowExeption()
+        {
+            var goodAccount = new GoodAccount(10);
+            Assert.ThrowsException<InvalidOperationException>(() => goodAccount.Withdraw(100));
+        }
+        [TestMethod]
+        public void Withdraw_WithdrawMoreThanBalance_BalanceUnchanged()
+        {
+            var goodAccount = new GoodAccount(10);
+            try { goodAccount.Withdraw(100); }
+            catch (InvalidOperationException ex) { }
+            decimal balance = goodAccount.GetBalance();
+            Assert.AreEqual(10, balance);
+        }
     }
 }
