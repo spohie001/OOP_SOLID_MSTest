@@ -8,6 +8,7 @@ namespace OOP_SOLID.OOP.Encapsulation
 {
     public class GoodAccount
     {
+        //allowing access to only funcionalities in a secure way 
         private decimal _balance;
         public GoodAccount(decimal balance)
         {
