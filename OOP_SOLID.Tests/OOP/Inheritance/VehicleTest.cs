@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace OOP_SOLID.Tests.OOP.Inheritance
 {
     [TestClass]
-    internal class VehicleTest
+    public class VehicleTest
     {
         [TestMethod]
         public void AnyVehicle_StartTriggered_SuccesfullyStarted()
