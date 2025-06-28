@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_SOLID.SPLOD.InterfaceSegregation
 {
-    internal class Sphere : IShape
+    internal class Sphere : IShape3D
     {
         public double Radius { get; set; }
         public double Area()
