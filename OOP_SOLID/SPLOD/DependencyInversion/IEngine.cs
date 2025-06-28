@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace OOP_SOLID.SPLOD.DependencyInversion
 {
-    internal class Engine : IEngine
+    //High-level modules should not depend on low-level modules. Both should depend on abstracion.
+    internal interface IEngine
     {
-        public string Start()
-        {
-            return "Started";
-        }
+        public string Start();
     }
 }

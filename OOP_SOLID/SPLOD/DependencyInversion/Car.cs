@@ -8,11 +8,11 @@ namespace OOP_SOLID.SPLOD.DependencyInversion
 {
     internal class Car
     {
-        private Engine _engine;
+        private IEngine _engine;
 
-        public Car()
+        public Car(IEngine engine)
         {
-            _engine = new Engine(); //if we want to change type of engine we have to change source code
+            _engine = engine;
         }
         public void StartCar()
         {
