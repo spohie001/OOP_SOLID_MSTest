@@ -13,18 +13,14 @@ namespace OOP_SOLID.Tests.SOLID.LiskovSubstitution
         [TestMethod]
         public void LSP_RectangleCalculatesArea_ReturnsCorrctlyCalculated()
         {
-            var rect = new Rectangle();
-            rect.Width = 10;
-            rect.Height = 5;
+            var rect = new Rectangle() { Width = 10, Height = 5 };
             Assert.AreEqual(50, rect.Area, "Expected 10 * 5 = 50");
         }
         [TestMethod]
         public void LSP_SquareCalculatesArea_ReturnsCorrctlyCalculated()
         {
-            var rect = new Square();
-            rect.Width = 10;
-            rect.Height = 5;
-            Assert.AreEqual(50, rect.Area, "Expected 10 * 5 = 50"); 
+            var rect = new Square() { SideLength = 5};
+            Assert.AreEqual(25, rect.Area, "Expected 5 * 5 = 25"); 
         }
     }
 }
